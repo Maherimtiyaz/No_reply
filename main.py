@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 from exceptions import setup_exception_handlers
+from src.auth.router import router as auth_router
 
 app = FastAPI(
     title="NoReply API",
@@ -20,6 +21,9 @@ app.add_middleware(
 
 # Exception handlers
 setup_exception_handlers(app)
+
+# Include routers
+app.include_router(auth_router)
 
 @app.get("/health")
 async def health_check():
