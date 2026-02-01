@@ -31,6 +31,16 @@ class Settings(BaseSettings):
     
     # Frontend URL for redirects after OAuth
     FRONTEND_URL: str = "http://localhost:3000"
+    
+    # AI/LLM Configuration
+    LLM_PROVIDER: str = "mock"  # Options: mock, openai, anthropic
+    OPENAI_API_KEY: str = ""
+    ANTHROPIC_API_KEY: str = ""
+    LLM_MODEL: str = ""  # e.g., "gpt-4", "claude-3-sonnet-20240229"
+    
+    # Parsing Configuration
+    PARSING_CONFIDENCE_THRESHOLD: float = 0.6
+    PARSING_USE_FEW_SHOT: bool = True
 
 
 settings = Settings()
